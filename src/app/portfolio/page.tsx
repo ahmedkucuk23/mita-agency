@@ -177,7 +177,7 @@ export default function PortfolioPage() {
             className="fixed inset-0 z-[100] md:hidden"
           >
             <div 
-              className="absolute inset-0 bg-dark-950/95 backdrop-blur-xl"
+              className="absolute inset-0 bg-dark-950"
               onClick={() => setMobileMenuOpen(false)}
             />
             
