@@ -360,3 +360,54 @@
   background: rgba(236, 28, 35, 0.3);
   color: white;
 }
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Reduce heavy blur effects on mobile */
+  .blur-\[150px\],
+  .blur-\[200px\] {
+    filter: blur(50px) !important;
+  }
+  
+  /* Simplify backdrop-blur on mobile */
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl {
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+  }
+  
+  /* Disable animations for users who prefer reduced motion */
+  .animate-marquee {
+    animation-duration: 60s;
+  }
+  
+  /* Hardware acceleration for smooth scrolling */
+  .glass,
+  .glass-strong {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  
+  /* Reduce ambient background complexity */
+  .fixed > div[class*="blur"] {
+    opacity: 0.5;
+  }
+}
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-marquee,
+  .animate-float,
+  .animate-pulse-glow,
+  .animate-gradient {
+    animation: none !important;
+  }
+}
